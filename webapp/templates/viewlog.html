@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<h2>{{ the_title }}</h2>
+
+<form method='POST' action='/search4'>
+<table>
+<p>搜索啊:</p>
+<tr><td>姓名:</td><td><input name='phrase' type='TEXT' width='60'></td></tr>
+</table>
+<p>查找按钮，点他:</p>
+<p><input value='查找' type='SUBMIT'></p>
+</form>
+
+
+<h2>{{ the_title2 }}</h2>
+<table>
+    <tr>
+        {% for row_title in the_row_titles %}
+            <th>{{row_title}}</th>
+        {% endfor %}
+    </tr>
+    {% for log_row in the_data %}
+        <tr>
+            {% for item in log_row %}
+                <td>{{item}}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+</table>
+
+{% endblock %}
